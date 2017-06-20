@@ -1,14 +1,8 @@
-██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗    ██████╗  ██████╗  ██╗███████╗
-██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║    ╚════██╗██╔═████╗███║╚════██║
-███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║     █████╔╝██║██╔██║╚██║    ██╔╝
-██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║    ██╔═══╝ ████╔╝██║ ██║   ██╔╝ 
-██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║    ███████╗╚██████╔╝ ██║   ██║  
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚══════╝ ╚═════╝  ╚═╝   ╚═╝
-
+# Hangman 2017
 
 A docker and docker swarm example with a simple hangman game with load balancing on play with docker.
 
-# Running development
+## Running development
 
 ```
 $ cd hangman
@@ -23,15 +17,15 @@ $ cd hangman
 $ docker-compose run --rm hangman bash
 ```
 
-# Deploying to play with docker
+## Deploying to play with docker
 
-## Step 1
+### Step 1
 
 Download the docker play-with-docker driver and put it on your path.
 
 https://github.com/franela/docker-machine-driver-pwd/releases/download/v0.0.3/docker-machine-driver.tgz
 
-## Step 2
+### Step 2
 
 Run the scripts in this order. Profit.
 
@@ -43,7 +37,7 @@ PWD_URL="<play-with-docker-url>"
 ./swarm-build.sh
 ```
 
-## Clean up
+### Clean up
 
 ```
 ./swarm-clean.sh
