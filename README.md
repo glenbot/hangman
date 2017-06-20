@@ -23,7 +23,9 @@ $ docker-compose run --rm hangman bash
 
 Download the docker play-with-docker driver and put it on your path.
 
-https://github.com/franela/docker-machine-driver-pwd/releases/download/v0.0.3/docker-machine-driver.tgz
+```
+$ wget https://github.com/franela/docker-machine-driver-pwd/releases/download/v0.0.5/docker-machine-driver.tgz
+```
 
 ### Step 2
 
@@ -32,9 +34,18 @@ Run the scripts in this order. Profit.
 ```
 PWD_URL="<play-with-docker-url>"
 ./swarm-init.sh "<play-with-docker-url>"
-./swarm-vizualizer.sh
+./swarm-visualizer.sh
 ./swarm-registry.sh
 ./swarm-build.sh
+```
+
+### Step 3
+
+Lauch the application
+
+```
+$ eval $(docker-machine env node1)
+$ docker stack deploy -c docker-compose-stack.yml hangman
 ```
 
 ### Clean up
