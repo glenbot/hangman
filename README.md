@@ -53,6 +53,8 @@ $ docker stack deploy -c docker-compose-stack.yml hangman
 ```
 
 ### Step 4 - Expose TCP port using ngrok (limitation of play-with-docker)
+
+```
 $ export NKEY="<yourngrokkey>"
 $ export LEADER_IP=$(docker-machine inspect node1 | jq -r '.Driver | .IPAddress')
 $ docker run --rm -e NGROK_AUTH="${NKEY}" -e LEADER_IP="${LEADER_IP}" -it wernight/ngrok sh -c "ngrok tcp -authtoken=\$NGROK_AUTH \$LEADER_IP:9000"
