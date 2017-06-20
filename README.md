@@ -5,7 +5,7 @@ A docker and docker swarm example with a simple hangman game with load balancing
 ## Requirements
 
 1. **docker** is required. Download at https://docs.docker.com/engine/installation/
-2. **jq** library is required. OSX: brew install jq, DEBIAN: apt-get install jq
+2. **jq** library is required. OSX: `brew install jq`, DEBIAN: `apt-get install jq`
 
 ## Running development
 
