@@ -1,0 +1,8 @@
+Commands:
+
+n - new game
+h - this help text
+g <letter> - guess letter
+gw <word> - guess word
+
+Use standard telnet escape sequence ^] to quit the game.

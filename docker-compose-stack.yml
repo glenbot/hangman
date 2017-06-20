@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  hangman:
+    image: "localhost:5000/hangman"
+    ports:
+      - "8888:8888"
+    deploy:
+      replicas: 5
