@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 
 services:
   hangman:
@@ -8,3 +8,10 @@ services:
       - "9000:8888"
     deploy:
       replicas: 5
+    networks:
+      - hangman_att
+
+networks:
+  hangman_att:
+    driver: overlay
+    attachable: true
