@@ -1,0 +1,12 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: hangman
+build:
+  artifacts:
+  - image: hangman
+deploy:
+  kubectl:
+    manifests:
+    - skaffold/deployment.yaml
+    - skaffold/service.yaml

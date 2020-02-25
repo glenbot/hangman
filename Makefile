@@ -3,6 +3,9 @@ install:
 check:
 	docker-compose run --rm hangman flake8 --ignore=E501,E402 /code/hangman/hangman /code/hangman/setup.py
 
+helm-package:
+	helm package helm/hangman
+
 create-egg:
 	docker-compose run --rm hangman bash -c "export PYTHONPATH='/tmp/python-tmp' \
 		&& cd /code/hangman \

@@ -1,6 +1,7 @@
 import os
 import logging
 import random
+import base64
 
 import zmq
 
@@ -271,6 +272,19 @@ class GameServer:
         self.logger = logger
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.STREAM)
+    
+    def ready(self):
+        """Readiness probe for k8s"""
+        with open('/tmp/ready', 'w') as f:
+            f.write('1')
+
+    def liveness(self, remove=False):
+        """Liveness probe for k8s"""
+        if not remove:
+            with open('/tmp/liveness', 'w') as f:
+                f.write('1')
+        else:
+            os.unlink('/tmp/liveness') 
 
     def start(self):
         bind_uri = 'tcp://{}:{}'.format(
@@ -279,6 +293,10 @@ class GameServer:
         )
         self.logger.info('Initializing game server: %s', bind_uri)
         self.socket.bind(bind_uri)
+
+        # set the application as ready and live
+        self.ready()
+        self.liveness()
 
         while True:
             client_id, message = self.socket.recv_multipart()
@@ -289,7 +307,7 @@ class GameServer:
                 logger.info('Unicode decode error')
                 continue
 
-            logger.info('client_id: %s message(%s): %s', client_id, len(message), message)
+            logger.info('client_id: %s message(%s): %s', base64.b64encode(client_id), len(message), message)
 
             client_state = None
             game = None

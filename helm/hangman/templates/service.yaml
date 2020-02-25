@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hangman.fullname" . }}
+spec:
+  selector:
+    app: hangman
+  ports:
+    - name: hangman
+      protocol: TCP
+      port: {{ .Values.environment.SERVER_PORT }}
+      targetPort: {{ .Values.environment.SERVER_PORT }}
+  type: LoadBalancer

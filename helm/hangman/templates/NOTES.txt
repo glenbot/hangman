@@ -1,0 +1,9 @@
+{{ .Files.Get "files/banner.txt" }}
+
+Thanks for installing hangman. Please access the game using:
+
+telnet <externalip> <loadbalancer port>
+
+or on minikube:
+
+telnet $(minikube ip) <loadbalancer port>

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hangman
+  namespace: default
+  labels:
+    app: hangman
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hangman
+  template:
+    metadata:
+      labels:
+        app: hangman
+    spec:
+      containers:
+      - name: hangman
+        image: hangman
+        command: ["hangman"]
+        env:
+        - name: "SERVER_ADDRESS"
+          value: "0.0.0.0"
+        - name: "SERVER_PORT"
+          value: "8888"
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/ready
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /tmp/liveness
+          initialDelaySeconds: 5
+          periodSeconds: 5

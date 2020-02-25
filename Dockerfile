@@ -1,11 +1,12 @@
-FROM python:3.5.2-slim
+FROM python:3.6-slim
 
 # Install some packages
 RUN apt-get update
+RUN apt-get install -y build-essential python3-dev libzmq3-dev pkg-config
 RUN apt-get install -y telnet screen
 
 # Add screenrc
-ADD .screenrc /root/.screenrc
+ADD docker-image/.screenrc /root/.screenrc
 
 # Install requirements
 ADD requirements.pip /tmp/requirements.pip
