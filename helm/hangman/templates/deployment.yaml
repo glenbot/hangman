@@ -28,7 +28,7 @@ spec:
           exec:
             command:
             - cat
-            - /tmp/ready
+            - /tmp/readiness
           initialDelaySeconds: 5
           periodSeconds: 5
         livenessProbe:

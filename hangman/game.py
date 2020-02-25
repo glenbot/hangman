@@ -272,19 +272,19 @@ class GameServer:
         self.logger = logger
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.STREAM)
-    
+
     def ready(self):
         """Readiness probe for k8s"""
-        with open('/tmp/ready', 'w') as f:
+        with open(settings.READINESS_PROBE_FILE, 'w') as f:
             f.write('1')
 
     def liveness(self, remove=False):
         """Liveness probe for k8s"""
         if not remove:
-            with open('/tmp/liveness', 'w') as f:
+            with open(settings.LIVENESS_PROBE_FILE, 'w') as f:
                 f.write('1')
         else:
-            os.unlink('/tmp/liveness') 
+            os.unlink(settings.LIVENESS_PROBE_FILE)
 
     def start(self):
         bind_uri = 'tcp://{}:{}'.format(
