@@ -1,0 +1,7 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: {{ include "hangman.fullname" . }}
+data:
+  env.SERVER_ADDRESS: "{{ .Values.environment.SERVER_ADDRESS }}"
+  env.SERVER_PORT: "{{ .Values.environment.SERVER_PORT }}"

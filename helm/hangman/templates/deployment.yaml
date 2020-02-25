@@ -21,9 +21,15 @@ spec:
         command: ["hangman"]
         env:
         - name: "SERVER_ADDRESS"
-          value: "{{ .Values.environment.SERVER_ADDRESS }}"
+          valueFrom:
+            configMapKeyRef:
+              name: {{ include "hangman.fullname" . }}
+              key: env.SERVER_ADDRESS
         - name: "SERVER_PORT"
-          value: "{{ .Values.environment.SERVER_PORT }}"
+          valueFrom:
+            configMapKeyRef:
+              name: {{ include "hangman.fullname" . }}
+              key: env.SERVER_PORT
         readinessProbe:
           exec:
             command:

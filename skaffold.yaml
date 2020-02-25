@@ -10,3 +10,4 @@ deploy:
     manifests:
     - skaffold/deployment.yaml
     - skaffold/service.yaml
+    - skaffold/configmap.yaml

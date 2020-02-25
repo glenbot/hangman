@@ -1,0 +1,7 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: hangman
+data:
+  env.SERVER_ADDRESS: "0.0.0.0"
+  env.SERVER_PORT: "8888"
