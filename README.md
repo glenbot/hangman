@@ -10,6 +10,10 @@ A telnet hangman python game for kubernetes developent and deployment example
 4. **skaffold** is required. https://skaffold.dev/docs/quickstart/
 5. **helm3** is required. https://v3.helm.sh/
 
+## TODO
+
+* Make words configurable
+
 ## Running development
 
 ```
